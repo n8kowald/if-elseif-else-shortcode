@@ -5,8 +5,8 @@ Tags: shortcode
 Requires at least: 4.5
 Tested up to: 5.2.2
 Stable tag: 0.1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Allows you to use if-elseif-else conditions in your editor content via an [if] shortcode.
 
@@ -53,6 +53,7 @@ The following callables are allowed by default.
 To allow other callables you can use the `if_elseif_else_shortcode_allowed_callables` filter.
 
 ```
+<?php
 add_filter( 'if_elseif_else_shortcode_allowed_callables', function( $whitelist ) {
 	$whitelist[] = 'your_callable_here';
 
@@ -130,5 +131,3 @@ If you want to simplify the if_elseif_else_statement() function, a WordPress tes
 *Example*
 Run this from the plugin directory:
 `./bin/install-wp-tests.sh wordpress_tests mysql_username mysql_password`
-
-== Arbitrary section ==

@@ -1,18 +1,17 @@
-=== if-elseif-else Shortcode ===
+# if-elseif-else Shortcode
 Contributors: n8kowald
 Donate link: https://www.paypal.me/nkowald
 Tags: shortcode
 Requires at least: 4.5
 Tested up to: 5.2.2
 Stable tag: 0.1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Allows you to use if-elseif-else conditions in your editor content via an [if] shortcode.
 
-== Description ==
-
-This plugin adds a new shortcode [if] that allows you to use if-elseif-else shortcodes in your editor content.
+## Description
+This plugin adds a new `[if]` shortcode that allows you to use if-elseif-else shortcodes in your editor content.
 
 ```
 [if is_super_admin]
@@ -53,6 +52,7 @@ The following callables are allowed by default.
 To allow other callables you can use the `if_elseif_else_shortcode_allowed_callables` filter.
 
 ```
+<?php
 add_filter( 'if_elseif_else_shortcode_allowed_callables', function( $whitelist ) {
 	$whitelist[] = 'your_callable_here';
 
@@ -60,14 +60,14 @@ add_filter( 'if_elseif_else_shortcode_allowed_callables', function( $whitelist )
 });
 ```
 
-== Installation ==
+## Installation
 
 1. Upload plugin to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions
 
-= What callables are supported? =
+### What callables are supported?
 
 String callables are supported:
 * Function names: is_user_logged_in
@@ -86,7 +86,7 @@ String callables are supported:
 Note: in the above example, you would need to add `UserAccessControl::is_member_logged_in` to the allowed callables whitelist.
 You can do this using the `if_elseif_else_shortcode_allowed_callables` filter.
 
-= Can I pass parameters to callables? =
+### Can I pass parameters to callables?
 Yes.
 
 ```
@@ -106,22 +106,14 @@ function is_garfield( $animal, $colour ) {
 [/if]
 ```
 
-== Screenshots ==
+## Changelog
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
-
-== Changelog ==
-
-= 0.1.0 =
+### 0.1.0
 * Committed the plugin
 
-== Upgrade Notice ==
+## Upgrade Notice
 
-== Testing ==
+## Testing
 If you want to simplify the if_elseif_else_statement() function, a WordPress test class exists for you to test your refactored code.
 
 *Install test framework and database*
@@ -130,5 +122,3 @@ If you want to simplify the if_elseif_else_statement() function, a WordPress tes
 *Example*
 Run this from the plugin directory:
 `./bin/install-wp-tests.sh wordpress_tests mysql_username mysql_password`
-
-== Arbitrary section ==
