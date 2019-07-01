@@ -25,28 +25,28 @@ This plugin adds a new `[if]` shortcode that allows you to use if-elseif-else sh
 
 The following callables are allowed by default.
 ```
-'comments_open',
-'is_404',
-'is_archive',
-'is_author',
-'is_category',
-'is_day',
-'is_feed',
-'is_front_page',
-'is_home',
-'is_month',
-'is_page',
-'is_search',
-'is_single',
-'is_singular',
-'is_sticky',
-'is_super_admin',
-'is_tag',
-'is_tax',
-'is_time',
-'is_user_logged_in',
-'is_year',
-'pings_open'
+comments_open
+is_404
+is_archive
+is_author
+is_category
+is_day
+is_feed
+is_front_page
+is_home
+is_month
+is_page
+is_search
+is_single
+is_singular
+is_sticky
+is_super_admin
+is_tag
+is_tax
+is_time
+is_user_logged_in
+is_year
+pings_open
 ```
 
 To allow other callables you can use the `if_elseif_else_shortcode_allowed_callables` filter.
@@ -116,9 +116,9 @@ function is_garfield( $animal, $colour ) {
 ## Testing
 If you want to simplify the if_elseif_else_statement() function, a WordPress test class exists for you to test your refactored code.
 
-*Install test framework and database*
+### Install test framework and database
 `./bin/install-wp-tests.sh {db-name} {db-user} {db-pass} [db-host] [wp-version] [skip-database-creation]`
 
-*Example*
+####Example
 Run this from the plugin directory:
 `./bin/install-wp-tests.sh wordpress_tests mysql_username mysql_password`
