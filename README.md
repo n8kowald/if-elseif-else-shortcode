@@ -1,12 +1,12 @@
 # if-elseif-else Shortcode
-Contributors: n8kowald
-Donate link: https://www.paypal.me/nkowald
-Tags: shortcode
-Requires at least: 4.5
-Tested up to: 5.2.2
-Stable tag: 0.1.0
-License: GPLv3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+* Contributors: n8kowald
+* Donate link: https://www.paypal.me/nkowald
+* Tags: shortcode
+* Requires at least: 4.5
+* Tested up to: 5.2.2
+* Stable tag: 0.1.0
+* License: GPLv3 or later
+* License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Allows you to use if-elseif-else conditions in your editor content via an [if] shortcode.
 
