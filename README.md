@@ -27,6 +27,7 @@ The following callables are allowed by default.
 ```
 comments_open
 is_404
+is_admin
 is_archive
 is_author
 is_category
@@ -114,11 +115,10 @@ function is_garfield( $animal, $colour ) {
 ## Upgrade Notice
 
 ## Testing
-If you want to simplify the if_elseif_else_statement() function, a WordPress test class exists for you to test your refactored code.
+If you want to simplify the `if_elseif_else_statement` function or fix a bug, a WordPress test class exists for you to test your refactored code.
 
 ### Install test framework and database
 `./bin/install-wp-tests.sh {db-name} {db-user} {db-pass} [db-host] [wp-version] [skip-database-creation]`
 
-####Example
+#### Example
 Run this from the plugin directory:
-`./bin/install-wp-tests.sh wordpress_tests mysql_username mysql_password`

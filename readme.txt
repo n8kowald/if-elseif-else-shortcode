@@ -26,28 +26,29 @@ This plugin adds a new shortcode [if] that allows you to use if-elseif-else shor
 
 The following callables are allowed by default.
 ```
-'comments_open',
-'is_404',
-'is_archive',
-'is_author',
-'is_category',
-'is_day',
-'is_feed',
-'is_front_page',
-'is_home',
-'is_month',
-'is_page',
-'is_search',
-'is_single',
-'is_singular',
-'is_sticky',
-'is_super_admin',
-'is_tag',
-'is_tax',
-'is_time',
-'is_user_logged_in',
-'is_year',
-'pings_open'
+comments_open
+is_404
+is_admin
+is_archive
+is_author
+is_category
+is_day
+is_feed
+is_front_page
+is_home
+is_month
+is_page
+is_search
+is_single
+is_singular
+is_sticky
+is_super_admin
+is_tag
+is_tax
+is_time
+is_user_logged_in
+is_year
+pings_open
 ```
 
 To allow other callables you can use the `if_elseif_else_shortcode_allowed_callables` filter.

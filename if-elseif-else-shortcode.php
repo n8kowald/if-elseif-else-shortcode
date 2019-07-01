@@ -102,6 +102,7 @@ function get_allowed_callables() {
     $whitelist = [
 		'comments_open',
 		'is_404',
+		'is_admin',
 		'is_archive',
 		'is_author',
 		'is_category',
