@@ -3,8 +3,8 @@
 * Donate link: https://www.paypal.me/nkowald
 * Tags: shortcode
 * Requires at least: 4.5
-* Tested up to: 5.2.2
-* Stable tag: 0.1.0
+* Tested up to: 5.9.1
+* Stable tag: 0.2.0
 * License: GPLv3 or later
 * License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,6 +26,7 @@ This plugin adds a new `[if]` shortcode that allows you to use if-elseif-else sh
 The following callables are allowed by default.
 ```
 comments_open
+get_field
 is_404
 is_admin
 is_archive
@@ -63,8 +64,9 @@ add_filter( 'if_elseif_else_shortcode_allowed_callables', function( $whitelist )
 
 ## Installation
 
-1. Upload plugin to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Clone the plugin to the `/wp-content/plugins/` directory: `git clone https://github.com/n8kowald/if-elseif-else-shortcode
+`
+2. Activate the plugin through the 'Plugins' menu in WordPress, or use WP-CLI: `wp plugin activate if-elseif-else-shortcode`
 
 ## Frequently Asked Questions
 
@@ -109,8 +111,14 @@ function is_garfield( $animal, $colour ) {
 
 ## Changelog
 
+### 0.2.0
+* Update WordPress version tested up to: 5.9.1.
+* Add composer --dev dependencies for running PHPUnit 9.
+* Add Advanced Custom Field's get_field function to the allowed callables list.
+* Format plugin code to follow WordPress coding conventions.
+
 ### 0.1.0
-* Committed the plugin
+* Committed the plugin.
 
 ## Upgrade Notice
 
@@ -120,5 +128,8 @@ If you want to simplify the `if_elseif_else_statement` function or fix a bug, a 
 ### Install test framework and database
 `./bin/install-wp-tests.sh {db-name} {db-user} {db-pass} [db-host] [wp-version] [skip-database-creation]`
 
-#### Example
-Run this from the plugin directory:
+#### Install PHPUnit and PHPUnit Polyfills with composer
+Run this from the plugin directory: `composer install`
+
+#### Run PHPUnit
+vendor/bin/phpunit
