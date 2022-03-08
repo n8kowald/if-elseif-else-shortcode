@@ -115,7 +115,7 @@ function is_garfield( $animal, $colour ) {
 * Update WordPress version tested up to: 5.9.1.
 * Add composer --dev dependencies for running PHPUnit 9.
 * Add Advanced Custom Field's get_field function to the allowed callables list.
-* Format plugin code to follow WordPress coding conventions.
+* Format plugin code to follow WordPress coding standard conventions.
 
 ### 0.1.0
 * Committed the plugin.
