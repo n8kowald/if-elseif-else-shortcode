@@ -127,6 +127,7 @@ function is_garfield( $animal, $colour ) {
 * Use strict comparison when validating allowed callables.
 * Escape error strings with `esc_html__()` and add typed docblocks.
 * Add Composer dev dependencies (PHPUnit 9) for running the test suite. Note: the test suite requires PHP 8.1.
+* Replace the Grunt-based i18n tooling with WP-CLI (`wp i18n make-pot`); remove the `grunt-wp-i18n` and `grunt-wp-readme-to-markdown` dev dependencies.
 * Format plugin code to follow WordPress coding standard conventions.
 
 ### 0.2.0
@@ -153,3 +154,8 @@ Run this from the plugin directory: `composer install`
 
 #### Run PHPUnit
 vendor/bin/phpunit
+
+## Generating translations
+Translations are managed with [WP-CLI](https://make.wordpress.org/cli/handbook/), which replaces the old Grunt / `grunt-wp-i18n` workflow. Run this from the plugin directory to (re)build the translation template:
+
+`wp i18n make-pot . languages/if-elseif-else-shortcode.pot --exclude=bin,tests,vendor,node_modules`
