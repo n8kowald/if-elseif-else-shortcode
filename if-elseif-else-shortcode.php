@@ -8,7 +8,7 @@
  * Text Domain:     if-elseif-else-shortcode
  * Domain Path:     /languages
  * Version:         0.3.0
- * Requires at least: 4.5
+ * Requires at least: 5.6
  * Requires PHP:    8.0
  *
  * @package         If_Elseif_Else_Shortcode
