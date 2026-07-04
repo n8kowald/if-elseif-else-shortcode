@@ -2,9 +2,10 @@
 Contributors: n8kowald
 Donate link: https://www.paypal.me/nkowald
 Tags: shortcode
-Requires at least: 4.5
-Tested up to: 5.2.2
-Stable tag: 0.1.0
+Requires at least: 5.6
+Tested up to: 7.0
+Requires PHP: 8.0
+Stable tag: 0.3.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,9 +25,12 @@ This plugin adds a new shortcode [if] that allows you to use if-elseif-else shor
 [/if]
 ```
 
+The shortcode tag defaults to `[if]`. If this clashes with another plugin you can change it with the `if_elseif_else_shortcode_tag` filter.
+
 The following callables are allowed by default.
 ```
 comments_open
+get_field
 is_404
 is_admin
 is_archive
@@ -50,6 +54,8 @@ is_user_logged_in
 is_year
 pings_open
 ```
+
+Note: `get_field` is provided by the Advanced Custom Fields (ACF) plugin and is only callable when ACF is active.
 
 To allow other callables you can use the `if_elseif_else_shortcode_allowed_callables` filter.
 
@@ -118,6 +124,26 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 0.3.0 =
+* Require PHP 8.0 or later (the plugin now uses `str_contains()`).
+* Update WordPress "Tested up to" version to 7.0.
+* Add ACF `get_field` to the default allowed callables list (only callable when ACF is active).
+* Make the shortcode tag filterable via the `if_elseif_else_shortcode_tag` filter (default `if`).
+* Add a direct-file-access (ABSPATH) guard.
+* PHP 8 compatibility: return early on null content for self-closing tags, and pass attributes through `array_values()` so keyed attributes are not treated as named arguments.
+* Harden `[else]` / `[elseif]` parsing so the matched branch indexes stay aligned, guarded with `isset()`.
+* Use strict comparison when validating allowed callables.
+* Escape error strings with `esc_html__()` and add typed docblocks.
+* Add Composer dev dependencies (PHPUnit 9) for running the test suite. Note: the test suite requires PHP 8.1.
+* Replace the Grunt-based i18n tooling with WP-CLI (`wp i18n make-pot`); remove the `grunt-wp-i18n` and `grunt-wp-readme-to-markdown` dev dependencies.
+* Format plugin code to follow WordPress coding standard conventions.
+
+= 0.2.0 =
+* Update WordPress "Tested up to" version to 5.9.1.
+* Add Composer dev dependencies for running PHPUnit 9.
+* Add ACF `get_field` to the allowed callables list.
+* Format plugin code to follow WordPress coding standard conventions.
+
 = 0.1.0 =
 * Committed the plugin
 
@@ -126,9 +152,16 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 == Testing ==
 If you want to simplify the if_elseif_else_statement() function, a WordPress test class exists for you to test your refactored code.
 
+Note: running the test suite requires PHP 8.1 or later. The dev dependencies (PHPUnit 9 via `doctrine/instantiator` 2.0) require PHP 8.1, even though the plugin itself only requires PHP 8.0 at runtime.
+
 *Install test framework and database*
 `./bin/install-wp-tests.sh {db-name} {db-user} {db-pass} [db-host] [wp-version] [skip-database-creation]`
 
 *Example*
 Run this from the plugin directory:
 `./bin/install-wp-tests.sh wordpress_tests mysql_username mysql_password`
+
+== Generating translations ==
+Translations are managed with WP-CLI (https://make.wordpress.org/cli/handbook/references/config/), which replaces the old Grunt/`grunt-wp-i18n` workflow. Run this from the plugin directory to (re)build the translation template:
+
+`wp i18n make-pot . languages/if-elseif-else-shortcode.pot --exclude=bin,tests,vendor,node_modules`
